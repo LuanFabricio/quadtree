@@ -2,7 +2,6 @@
 #define QUADTREE_H_
 
 #include "./platform.h"
-#include "./defines.h"
 #include "./types.h"
 #include "./mm.h"
 
@@ -15,6 +14,7 @@ QUADTREE void QuadTree_display(const QuadTree *root);
 
 #ifdef QUADTREE_IMPLEMENTATION
 #define AABB_IMPLEMENTATION
+#include "./defines.h"
 #include "./aabb.h"
 
 QUADTREE QuadTree *QuadTree_new(float x, float y, float half_dimension)
@@ -90,8 +90,6 @@ QUADTREE boolean QuadTree_insert(QuadTree *root, Point p)
 	return false;
 }
 
-#define NODE_COLOR 0xf0f0f0ff
-#define POINT_COLOR 0xff0000ff
 QUADTREE void QuadTree_display(const QuadTree *root)
 {
 	if (root == NULL) return;

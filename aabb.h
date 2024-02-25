@@ -22,7 +22,6 @@ AABB_PREFIX boolean AABB_contains_point(AABB aabb, Point p)
 		&& top <= p.y && bottom >= p.y;
 }
 
-#define AABB_BORDER_COLOR 0xf0f0f0ff
 AABB_PREFIX void AABB_display(const AABB aabb)
 {
 	float left = aabb.center.x - aabb.half_dimension;
