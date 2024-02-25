@@ -1,6 +1,7 @@
 #include "./platform.h"
 #include "./mm.h"
 #include "./types.h"
+#include "./defines.h"
 
 #define QUADTREE_IMPLEMENTATION
 #include "./quadtree.h"
@@ -13,6 +14,7 @@ static QuadTree *root = NULL;
 void draw_loop()
 {
 	Platform_begin_drawing();
+		Platform_clear_background(BACKGROUND_COLOR);
 		QuadTree_display(root);
 	Platform_end_drawing();
 }
@@ -35,7 +37,7 @@ int main()
 				});
 	}
 
-	Platform_init_window("Teste", SCREEN_SIZE, SCREEN_SIZE);
+	Platform_init_window("QuadTree", SCREEN_SIZE, SCREEN_SIZE);
 
 #ifdef PLATFORM_WEB
 	Platform_set_loop(draw_loop);
@@ -43,10 +45,10 @@ int main()
 	while (!Platform_window_should_close()) {
 		draw_loop();
 	}
-#endif
 
 	Platform_close_window();
 	mm_clean();
+#endif
 
 	return 0;
 }
