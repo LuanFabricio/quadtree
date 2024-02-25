@@ -3,7 +3,6 @@
 
 #include "./defines.h"
 #include "./types.h"
-#include <stdio.h>
 
 #define MEMORY_SIZE 4096
 
@@ -25,10 +24,13 @@ static void mm_clean()
 	memory_ptr = 0;
 }
 
+#ifndef PLATFORM_WEB
+#include <stdio.h>
 static void mm_log()
 {
 	float p = 100 * (float)memory_ptr / (float)MEMORY_SIZE;
 	printf("Memory: %u/%u(%.02f)\n", memory_ptr, MEMORY_SIZE, p);
 }
+#endif
 
 #endif // MM_H_

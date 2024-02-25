@@ -37,7 +37,6 @@ int main()
 
 	Platform_init_window("Teste", SCREEN_SIZE, SCREEN_SIZE);
 
-	mm_log();
 #ifdef PLATFORM_WEB
 	Platform_set_loop(draw_loop);
 #else
